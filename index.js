@@ -118,5 +118,9 @@ console.log(moviesFive);
 
 // Sort movies release years
 const releaseYears = [2001, 2023, 1998, 2014];
-releaseYears.sort();
+releaseYears.sort((a, b) => a - b);
 console.log(releaseYears);
+
+const releaseYearsTwo = [1, 100, 5, 12];
+releaseYearsTwo.sort((a, b) => a - b);
+console.log(releaseYearsTwo);
