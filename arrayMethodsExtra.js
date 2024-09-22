@@ -101,3 +101,50 @@ console.log(
     9.0
   )
 );
+
+// 6. find all unique genres
+function uniqueGenres(arr) {
+  const uniqueGenres = [];
+  arr.forEach((movie) => {
+    const { genre } = movie;
+    if (!uniqueGenres.includes(genre)) {
+      uniqueGenres.push(genre);
+    }
+  });
+  return uniqueGenres;
+}
+console.log(
+  uniqueGenres([
+    { title: "Inception", genre: "Action" },
+    { title: "The Dark Knight", genre: "Action" },
+    { title: "A Beautiful Mind", genre: "Drama" },
+  ])
+);
+
+// 7.deep copy of movies
+function copyOfMovies() {
+  const mainArr = [
+    { title: "Inception", genre: "Action" },
+    { title: "The Dark Knight", genre: "Action" },
+  ];
+  const newArr = mainArr.map((movie) => ({ ...movie }));
+  newArr[0].title = "Interstellar";
+  console.log(mainArr);
+  console.log(newArr);
+}
+copyOfMovies();
+
+// 8. sort movies by rating, then votes
+function sortByRatingAndVotes(arr) {
+  return arr.sort((a, b) => {
+    if (a.rating !== b.rating) return b.rating - a.rating;
+    return b.votes - a.votes;
+  });
+}
+console.log(
+  sortByRatingAndVotes([
+    { title: "Inception", rating: 8.8, votes: 2000 },
+    { title: "The Dark Knight", rating: 9.0, votes: 1500 },
+    { title: "A Beautiful Mind", rating: 8.8, votes: 3000 },
+  ])
+);
